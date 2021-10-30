@@ -42,3 +42,10 @@ h1{
     height: fit-content;
     position: relative;
 }
+h2{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    margin: auto;
+    color: turquoise;
+}
