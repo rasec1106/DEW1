@@ -11,8 +11,12 @@ const apiFunctions = {
         return await (await fetch(url)).json();
     },
     posterUrl: function(movie) {
-        var baseImageUrl = "http://image.tmdb.org/t/p/w300/";
+        var baseImageUrl = "http://image.tmdb.org/t/p/w220_and_h330_face/";
         return baseImageUrl + movie.poster_path; 
+    },
+    backgroundUrl: function(movie) {
+        var baseImageUrl = "http://image.tmdb.org/t/p/w1920_and_h800_multi_faces/";
+        return baseImageUrl + movie.backdrop_path; 
     }
 
 }
