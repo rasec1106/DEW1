@@ -6,20 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto DEW</title>
     <link rel="stylesheet" href="../styles/index.css">
+    <script type="module" src="../scripts/apiSearcher.js"></script>
 </head>
 <body>
     <header>
         <!-- PARTE SUPERIOR DE LA PAGINA WEB -->
-        <h1>HEADER</h1>
-        <h2>Prueba header 2</h2>
-        <button>Botoncito</button>
-        <nav>
+        <div class="headerContainer">
+            <!-- LOGO -->
+            <img src="../images/Logo.png" class="logo"/>
             <!-- BARRA DE NAVEGACION -->
-        </nav>
+            <nav>
+                <a href="index.html" class="headerLink">Inicio</a>
+                <a href="Busqueda" class="headerLink">Busqueda</a>
+                <a href="Peliculas" class="headerLink">Peliculas</a>
+                <a href="Seires" class="headerLink">Series</a>
+                <a href="Populares" class="headerLink">Populares</a>
+                <a href="Actores" class="headerLink">Actores</a>
+            </nav>
+        </div>
     </header>
     <main>
         <!-- CUERPO PRINCIPAL DE LA PAGINA -->
         <h1>MAIN</h1>
+        <div id="movieDataGridContainer"></div>
     </main>
     <footer>
     <!-- PARTE INFERIOR DE LA PAGINA -->
