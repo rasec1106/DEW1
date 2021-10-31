@@ -3,6 +3,8 @@ import API from './api.js';
 let data = (await API.popularMovies());
 const movies = data.results;
 let movieDataGrid = document.getElementById("movieDataGridContainer");
+let heroImage = document.getElementById("heroImage");
+heroImage.src = API.backgroundUrl(movies[0]);
 movies.map((movie) =>{
     movieDataGrid.appendChild(createThumbnail(movie));
 })
