@@ -1,12 +1,13 @@
 const apiConfig = {
     BASE_URL: "https://api.themoviedb.org/3",
     API_KEY: "2e24785394d993f26fba2a923499635d",
-    POPULAR_MOVIE_URL: "/movie/popular?api_key="
+    POPULAR_MOVIE_URL: "/movie/popular?api_key=",
+    spanish: "&language=es-MX"
 }
 
 const apiFunctions = {
     popularMovies: async()=>{
-        let url = apiConfig.BASE_URL+apiConfig.POPULAR_MOVIE_URL+apiConfig.API_KEY;
+        let url = apiConfig.BASE_URL+apiConfig.POPULAR_MOVIE_URL+apiConfig.API_KEY+apiConfig.spanish;
         return await (await fetch(url)).json();
     },
     posterUrl: function(movie) {
