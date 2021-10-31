@@ -1,0 +1,43 @@
+
+.catalogo-series {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 130px;
+}
+
+.catalogo-series h1{
+    width: 100%;
+    color: white;
+    text-align: left;
+    margin-left: 35px;
+    margin-top: 15px;
+    font-family: sans-serif;
+    font-size: 30pt;
+}
+
+.catalogo-series h2{
+    width: 100%;
+    color: white;
+    text-align: left;
+    margin-left: 35px;
+    margin-top: 15px;
+    font-family: sans-serif;
+    font-size: 25pt;
+}
+    
+.catalogo-series figure{
+    width: 22%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+
+.catalogo-series img{
+    width: 90%;
+    display: block;
+    margin: 12px;
+    
+}
