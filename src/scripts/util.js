@@ -40,10 +40,18 @@ function createThumbnailImage(movie){
     image.className += "thumbnail-image";
     return image;
 }
+function createDetailImage(movie){
+    let image = document.createElement('img');
+    image.src = API.detailImageUrl(movie);
+    image.className += "detail-image";
+    return image;
+}
 
 const util = {
     setCarouselImages: images => setCarouselImages(images),
-    createThumbnail: movie => createThumbnail(movie)
+    createThumbnail: movie => createThumbnail(movie),
+    createDetailImage: movie => createDetailImage(movie)
+
 }
 
 export default util;
