@@ -1,10 +1,5 @@
 import API from './api.js'
 
-function setCarouselInterval(time){
-    setInterval(()=>{
-        $('.carousel').carousel('next');
-    },time)
-}
 
 function setCarouselImages(images){
     for(const pos in images){
@@ -12,7 +7,7 @@ function setCarouselImages(images){
         let container = document.createElement('div');
         container.className += " carousel-item";
         let image = document.createElement('img');
-        image.className += " d-block w-100";
+        image.className += " d-block w-100 carousel-img";
         image.src = API.backgroundUrl(images[pos]);
         container.appendChild(image);
         $('#carouselContainer').append(container);
@@ -27,7 +22,6 @@ function setCarouselImages(images){
 }
 
 const util = {
-    setCarouselInterval: time => setCarouselInterval(time), 
     setCarouselImages: images => setCarouselImages(images)
 }
 

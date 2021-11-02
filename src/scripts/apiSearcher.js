@@ -10,7 +10,6 @@ const movies = data.results;
 /**
  * Making the slider
  */
-UTIL.setCarouselInterval(5000);
 UTIL.setCarouselImages(movies.slice(0,5));
 
 
