@@ -4,26 +4,35 @@ import UTIL from './util.js';
 /**
  * Getting the movieId from the url
  */
-let params = new URLSearchParams(window.location.search);
-let movieId = params.get('movieId');
+const params = new URLSearchParams(window.location.search);
+const movieId = params.get('movieId');
 
 /**
  * Getting the data from the API
  */
+const movie = (await API.movie(movieId));
 
- const movie = (await API.movie(movieId));
-console.log(movie);
+/**
+ * Making the overview section
+ */
+let overviewContainer = document.getElementById('overviewContainer');
+overviewContainer.style.backgroundImage = `url(${API.backgroundUrl(movie)})`;
+// Main Container
+let plot = document.createElement('div');
+plot.className += " plot";
+// Image
+let image = UTIL.createDetailImage(movie);
+plot.appendChild(image);
+// Info
+let infoContainer = UTIL.createInfoPlot(movie);
+plot.appendChild(infoContainer);
 
-// /**
-//  * Making the slider
-//  */
-// UTIL.setCarouselImages(movies.slice(0,5));
+
+overviewContainer.appendChild(plot);
 
 
-// let movieDataGrid = document.getElementById("movieDataGridContainer");
-// movies.map((movie) =>{
-//     movieDataGrid.appendChild(UTIL.createThumbnail(movie));
-// })
+
+
 
 
 // var model = {
