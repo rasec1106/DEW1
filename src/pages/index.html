@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <!-- CSS PERSONALIZADO -->
-    <!-- <link rel="stylesheet" href="../styles/bootstrap.css"> -->
+    <link rel="stylesheet" href="../styles/bootstrap.css">
     <link rel="stylesheet" href="../styles/index.css">
     <script type="module" src="../scripts/apiSearcher.js"></script>
 </head>
@@ -35,7 +35,7 @@
     </header>
     <main>
         <!-- CUERPO PRINCIPAL DE LA PAGINA -->
-        <div id="slideshow" class="carousel slide" data-ride="carousel">
+        <div id="slideshow" class="carousel slide" data-ride="carousel" data-interval="5000">
 
             <!-- INDICADORES DE POSICION DE LA PARTE INFERIOR DEL SLIDER -->
             <ol class="carousel-indicators" id="carouselList"></ol>
@@ -54,7 +54,9 @@
             </a>
         </div>
         <!-- <img id="heroImage"/> -->
-        <div class="subheader">Peliculas Populares</div>
+        <div class="subheader">
+            <a href="#" class="link">Peliculas Populares</a>
+        </div>
         <div id="movieDataGridContainer"></div>
     </main>
     <footer>
