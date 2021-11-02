@@ -11,6 +11,10 @@ const movieId = params.get('movieId');
  * Getting the data from the API
  */
 const movie = (await API.movie(movieId));
+const videosJson = (await API.videos(movieId));
+const video = videosJson.results[0];
+let trailer = null;
+if(video) trailer = video.key;
 
 /**
  * Making the overview section
@@ -26,9 +30,32 @@ plot.appendChild(image);
 // Info
 let infoContainer = UTIL.createInfoPlot(movie);
 plot.appendChild(infoContainer);
-
-
 overviewContainer.appendChild(plot);
+
+// Video
+if(trailer){
+    let trailerContainer = document.getElementById('trailerContainer');
+    let title = document.createElement('div');
+    title.className += " subheader";
+    title.innerHTML = "Trailer";
+    trailerContainer.appendChild(title);
+    let videoTrailer = document.createElement('div');
+    videoTrailer.className += " trailer";
+    videoTrailer.innerHTML = `
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/${trailer}" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; 
+        encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        >
+        </iframe>
+    `;
+    trailerContainer.appendChild(videoTrailer);
+}
+    
 
 
 
