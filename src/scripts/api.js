@@ -3,6 +3,7 @@ const apiConfig = {
     API_KEY: "?api_key=2e24785394d993f26fba2a923499635d",
     POPULAR: "/popular",
     MOVIE: "/movie",
+    VIDEOS: "/videos",
     spanish: "&language=es-MX"
 }
 
@@ -13,6 +14,10 @@ const apiFunctions = {
     },
     movie: async(movieId)=>{
         let url = apiConfig.BASE_URL+apiConfig.MOVIE+`/${movieId}`+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
+    videos: async(movieId)=>{
+        let url = apiConfig.BASE_URL+apiConfig.MOVIE+`/${movieId}`+apiConfig.VIDEOS+apiConfig.API_KEY+apiConfig.spanish;
         return await (await fetch(url)).json();
     },
     posterUrl: function(movie) {
