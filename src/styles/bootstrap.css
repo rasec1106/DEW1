@@ -1,0 +1,17 @@
+.indicator{
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgba( 255, 255, 255, 0.7 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.8 );
+    backdrop-filter: blur( 5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    
+}
+.carousel-indicators li{
+    width: 10px;
+    height: 10px;
+}
+.carousel-img{
+    height: 500px;
+    object-fit: cover;
+}
