@@ -12,7 +12,9 @@ const movies = data.results;
  */
 UTIL.setCarouselImages(movies.slice(0,5));
 
-
+/**
+ * Popular Movies
+ */
 let movieDataGrid = document.getElementById("movieDataGridContainer");
 movies.map((movie) =>{
     movieDataGrid.appendChild(UTIL.createThumbnail(movie));
