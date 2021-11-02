@@ -1,6 +1,5 @@
 import API from './api.js'
 
-
 function setCarouselImages(images){
     for(const pos in images){
         // Creating the images
@@ -21,8 +20,19 @@ function setCarouselImages(images){
       $('.indicator').first()[0].className += " active";
 }
 
+function createThumbnail(movie){
+    let thumbnail = document.createElement('div');
+    thumbnail.className += "thumbnail";
+    let image = document.createElement('img');
+    image.src = API.posterUrl(movie);
+    image.className += "thumbnail-image"
+    thumbnail.appendChild(image);
+    return thumbnail;
+}
+
 const util = {
-    setCarouselImages: images => setCarouselImages(images)
+    setCarouselImages: images => setCarouselImages(images),
+    createThumbnail: movie => createThumbnail(movie)
 }
 
 export default util;

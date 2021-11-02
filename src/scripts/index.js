@@ -14,21 +14,9 @@ UTIL.setCarouselImages(movies.slice(0,5));
 
 
 let movieDataGrid = document.getElementById("movieDataGridContainer");
-// let heroImage = document.getElementById("heroImage");
-// heroImage.src = API.backgroundUrl(movies[0]);
 movies.map((movie) =>{
-    movieDataGrid.appendChild(createThumbnail(movie));
+    movieDataGrid.appendChild(UTIL.createThumbnail(movie));
 })
-
-function createThumbnail(movie){
-    let thumbnail = document.createElement('div');
-    thumbnail.className += "thumbnail";
-    let image = document.createElement('img');
-    image.src = API.posterUrl(movie);
-
-    thumbnail.appendChild(image);
-    return thumbnail;
-}
 
 
 // var model = {
