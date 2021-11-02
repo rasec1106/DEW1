@@ -7,6 +7,7 @@ html{
     min-width: 100%;
     position: relative;
     overflow: auto;
+    background-color: #050505;
 }
 body{
     margin: 0;
@@ -14,6 +15,19 @@ body{
     height: -webkit-fill-available;
     width: -webkit-fill-available;
     position: relative;
+    animation: animateBody 2s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #050505;
+}
+@keyframes animateBody {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
 }
 header{
     background-color: #050505;
@@ -33,11 +47,12 @@ main{
     position: relative;
 }
 footer{
-    background-color: violet;
+    background-color: #050505;
     width: 100%;
-    height: 100px;
-    display: block;
+    /* height: 100px; */
+    display: flex;
     position: relative;
+    padding: 40px 0 10px 0;
 }
 h1{
     margin: auto;
@@ -52,6 +67,11 @@ h2{
     position: relative;
     margin: auto;
 }
+h5{
+    font-size: 14px;
+    cursor: default;
+    margin: 0;
+}
 nav{
     width: 650px;
     height: 25px;
@@ -60,13 +80,18 @@ nav{
     align-self: center;
     justify-content: flex-end;
 }
-.headerContainer{
+.headerContainer, .footerContainer{
     width: 90%;
     height: 100%;
     margin: auto;
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.footerContainer{
+    align-items: end;
 }
 .headerLink{
     display: flex;
@@ -96,6 +121,15 @@ nav{
     position: relative;
     width: 200px;
     height: 40px;
+}
+.socialContainer{
+    cursor: default;
+}
+.social-icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 5px;
 }
 .subheader{
     display: block;
@@ -128,7 +162,7 @@ nav{
     height: 100%;
     overflow: auto;
     position: relative;
-    margin: 20px auto 40px auto;
+    margin: 20px auto 0 auto;
 }
 .thumbnail{
     position: relative;
@@ -156,8 +190,22 @@ nav{
     align-items: center;
     justify-content: center;
 }
+#mediaContainer{
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+#trailerContainer{
+    /* width: 40%; */
+    /* height: 500px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: auto; */
+}
 .plot{
-    width: 70%;
+    width: 80%;
     height: 90%;
     background-color: #050505cc;
     border-radius: 20px;
@@ -169,6 +217,7 @@ nav{
 .plot-info{
     margin: 20px;
     color: #fff;
+    overflow: auto;
 }
 .plot-title{
     margin: 20px 0 0 0;
@@ -208,4 +257,7 @@ nav{
     height: 100%;
     position: relative;
     border-radius: 20px;
+}
+.trailer{
+    margin-left: 40px;
 }
