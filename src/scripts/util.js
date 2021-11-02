@@ -23,11 +23,22 @@ function setCarouselImages(images){
 function createThumbnail(movie){
     let thumbnail = document.createElement('div');
     thumbnail.className += "thumbnail";
+    let link = createThumbnailLink(movie);
+    link.appendChild(createThumbnailImage(movie));
+    thumbnail.appendChild(link);
+    return thumbnail;
+}
+
+function createThumbnailLink(movie){
+    let link = document.createElement('a');
+    link.href = `./overview.html?movieId=${API.getmovieId(movie)}`;
+    return link;
+}
+function createThumbnailImage(movie){
     let image = document.createElement('img');
     image.src = API.posterUrl(movie);
-    image.className += "thumbnail-image"
-    thumbnail.appendChild(image);
-    return thumbnail;
+    image.className += "thumbnail-image";
+    return image;
 }
 
 const util = {
