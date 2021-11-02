@@ -1,10 +1,22 @@
 import API from './api.js';
+import UTIL from './util.js';
 
+/**
+ * Fetching the data from the API
+ */
 let data = (await API.popularMovies());
 const movies = data.results;
+
+/**
+ * Making the slider
+ */
+UTIL.setCarouselInterval(5000);
+UTIL.setCarouselImages(movies.slice(0,5));
+
+
 let movieDataGrid = document.getElementById("movieDataGridContainer");
-let heroImage = document.getElementById("heroImage");
-heroImage.src = API.backgroundUrl(movies[0]);
+// let heroImage = document.getElementById("heroImage");
+// heroImage.src = API.backgroundUrl(movies[0]);
 movies.map((movie) =>{
     movieDataGrid.appendChild(createThumbnail(movie));
 })
