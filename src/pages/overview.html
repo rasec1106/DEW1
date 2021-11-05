@@ -14,7 +14,7 @@
     <!-- CSS PERSONALIZADO -->
     <link rel="stylesheet" href="../styles/bootstrap.css">
     <link rel="stylesheet" href="../styles/index.css">
-    <script type="module" src="../scripts/index.js"></script>
+    <script type="module" src="../scripts/overview.js"></script>
 </head>
 <body>
     <header>
@@ -24,7 +24,7 @@
             <img src="../images/Logo.png" class="logo"/>
             <!-- BARRA DE NAVEGACION -->
             <nav>
-                <a href="./index.html" class="headerLink activeLink">Inicio</a>
+                <a href="./index.html" class="headerLink">Inicio</a>
                 <a href="#" class="headerLink">Busqueda</a>
                 <a href="#" class="headerLink">Peliculas</a>
                 <a href="#" class="headerLink">Series</a>
@@ -35,29 +35,10 @@
     </header>
     <main>
         <!-- CUERPO PRINCIPAL DE LA PAGINA -->
-        <div id="slideshow" class="carousel slide" data-ride="carousel" data-interval="5000">
-
-            <!-- INDICADORES DE POSICION DE LA PARTE INFERIOR DEL SLIDER -->
-            <ol class="carousel-indicators" id="carouselList"></ol>
-
-            <!-- AQUI VAN LAS IMAGENES QUE SE VAN A VISUALIZAR -->
-            <div class="carousel-inner" id="carouselContainer"></div>
-
-            <!-- FLECHAS DE NAVEGACION -->
-            <a class="carousel-control-prev" href="#slideshow" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#slideshow" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-            </a>
+        <div id="overviewContainer"></div>
+        <div id="mediaContainer">
+            <div id="trailerContainer"></div>
         </div>
-        <!-- <img id="heroImage"/> -->
-        <div class="subheader">
-            <a href="#" class="link">Peliculas Populares</a>
-        </div>
-        <div id="movieDataGridContainer"></div>
     </main>
     <footer>
         <!-- PARTE INFERIOR DE LA PAGINA -->
