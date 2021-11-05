@@ -1,0 +1,263 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Fredericka the Great', cursive, 'Roboto';
+}
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    min-width: 100%;
+    position: relative;
+    overflow: auto;
+    background-color: #050505;
+}
+body{
+    margin: 0;
+    padding: 0; 
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    position: relative;
+    animation: animateBody 2s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #050505;
+}
+@keyframes animateBody {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+header{
+    background-color: #050505;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+main{
+    background-color: #050505;
+    width: 100%;
+    /* height: auto; */
+    display: block;
+    overflow: auto;
+    position: relative;
+}
+footer{
+    background-color: #050505;
+    width: 100%;
+    /* height: 100px; */
+    display: flex;
+    position: relative;
+    padding: 40px 0 10px 0;
+}
+h1{
+    margin: auto;
+    padding: 20px 0;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+h2{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    margin: auto;
+}
+h5{
+    font-size: 14px;
+    cursor: default;
+    margin: 0;
+}
+nav{
+    width: 650px;
+    height: 25px;
+    position: relative;
+    display: inline-flex;
+    align-self: center;
+    justify-content: flex-end;
+}
+.headerContainer, .footerContainer{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.footerContainer{
+    align-items: end;
+}
+.headerLink{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'Fredericka the Great', cursive, 'Roboto';
+    position: relative;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 10px;
+    color: #fff;
+}
+.headerLink:hover{
+    text-decoration: none;
+    color: rgb(45, 90, 60);
+    background-color: orange;
+    border-radius: 15px;
+}
+.activeLink{
+    color: rgb(45, 90, 60);
+}
+.logo{
+    display: inline-flex;
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    width: 200px;
+    height: 40px;
+}
+.socialContainer{
+    cursor: default;
+}
+.social-icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.subheader{
+    display: block;
+    font-size: 35px;
+    width: 90%;
+    margin: 20px auto;
+    position: relative;
+    font-family: 'Fredericka the Great', cursive, 'Roboto';
+    color: #fff;
+}
+.link{
+    color: #fff;
+}
+.link:hover{
+    text-decoration: none;
+    color: rgb(45, 90, 60);
+}
+
+#heroImage{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display:block;
+    object-fit: cover;
+}
+#movieDataGridContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 90%;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    margin: 20px auto 0 auto;
+}
+.thumbnail{
+    position: relative;
+    display: flex;
+    width: 220px;
+    height: 330px;
+    align-self: center;
+    justify-self: center;
+    margin: 10px 0;
+}
+.thumbnail-image{
+    border-radius: 20px;
+    cursor: pointer;
+}
+/*****************
+    OVERVIEW
+******************/
+#overviewContainer{
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#mediaContainer{
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+#trailerContainer{
+    /* width: 40%; */
+    /* height: 500px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: auto; */
+}
+.plot{
+    width: 80%;
+    height: 90%;
+    background-color: #050505cc;
+    border-radius: 20px;
+    display: flex;
+    margin: auto;
+    position: relative;
+    box-shadow: -10px -10px 5px #050505aa;
+}
+.plot-info{
+    margin: 20px;
+    color: #fff;
+    overflow: auto;
+}
+.plot-title{
+    margin: 20px 0 0 0;
+}
+.plot-subtitle{
+    margin: 5px 0 20px 0;
+    font-family: 'Roboto', cursive;
+    font-size: 18px;
+
+}
+.plot-description{
+    margin: 5px 30px;
+    font-size: 16px;
+    text-align: justify;
+    font-family: 'Roboto';
+}
+.plot-rating{
+    margin: 20px 30px;
+    display: flex;
+    align-items: center;
+}
+.plot-score{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    color: #000;
+    font-weight: 800;
+    border-radius: 50%;
+    margin: 0 20px;
+    font-family: 'Roboto';
+}
+.detail-image{
+    width: auto;
+    height: 100%;
+    position: relative;
+    border-radius: 20px;
+}
+.trailer{
+    margin-left: 40px;
+}
