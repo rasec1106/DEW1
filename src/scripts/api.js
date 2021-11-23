@@ -6,6 +6,7 @@ const apiConfig = {
     VIDEOS: "/videos",
     RECOMMENDATIONS: "/recommendations",
     CREDITS: "/credits",
+    SEARCH: "/search",
     spanish: "&language=es-MX"
 }
 
@@ -44,6 +45,10 @@ const apiFunctions = {
     },
     credits: async(movieId)=>{
         let url = apiConfig.BASE_URL+apiConfig.MOVIE+`/${movieId}`+apiConfig.CREDITS+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
+    searchMovies: async(searchTerm)=>{
+        let url = apiConfig.BASE_URL+apiConfig.SEARCH+apiConfig.MOVIE+apiConfig.API_KEY+apiConfig.spanish+`&query=${searchTerm}`;
         return await (await fetch(url)).json();
     },
 
