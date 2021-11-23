@@ -47,6 +47,35 @@ function createDetailImage(movie){
     image.className += "detail-image";
     return image;
 }
+function createInfoPlot(movie){
+    let info = document.createElement('div');
+    info.className += " plot-info";
+    // Titulo
+    let title = document.createElement('h2');
+    title.className += " plot-title";
+    title.innerHTML = movie.title+` (${movie.release_date.slice(0,4)})`;
+    info.appendChild(title);
+    // Subtitulo
+    let subtitle = document.createElement('h4');
+    subtitle.className += " plot-subtitle";
+    subtitle.innerHTML = movie.tagline;
+    info.appendChild(subtitle);
+    // Overview
+    let description = document.createElement('p');
+    description.className += " plot-description";
+    description.innerHTML = movie.overview;
+    info.appendChild(description);
+    // Score
+    let rating = document.createElement('div');
+    rating.className += "plot-rating";
+    rating.innerHTML = "Rating"
+    let score = document.createElement('div');
+    score.className += " plot-score";
+    score.innerHTML = movie.vote_average;
+    rating.appendChild(score);
+    info.appendChild(rating);
+    return info;
+}
 function createCharacterThumbnail(character){
     let thumbnail = document.createElement('div');
     thumbnail.className += "thumbnail";
@@ -78,42 +107,49 @@ function createCharacterThumbnailImage(character){
     image.className += "thumbnail-image";
     return image;
 }
-function createInfoPlot(movie){
+function createPersonImage(person) {
+    let image = document.createElement('img');
+    image.src = API.personImageUrl(person);
+    image.className += "detail-image";
+    return image;
+}
+function createPersonPlot(person){
     let info = document.createElement('div');
     info.className += " plot-info";
     // Titulo
     let title = document.createElement('h2');
     title.className += " plot-title";
-    title.innerHTML = movie.title+` (${movie.release_date.slice(0,4)})`;
+    title.innerHTML = person.name;
     info.appendChild(title);
     // Subtitulo
     let subtitle = document.createElement('h4');
     subtitle.className += " plot-subtitle";
-    subtitle.innerHTML = movie.tagline;
+    subtitle.innerHTML = person.birthday;
     info.appendChild(subtitle);
     // Overview
     let description = document.createElement('p');
     description.className += " plot-description";
-    description.innerHTML = movie.overview;
+    description.innerHTML = person.biography;
     info.appendChild(description);
-    // Score
-    let rating = document.createElement('div');
-    rating.className += "plot-rating";
-    rating.innerHTML = "Rating"
-    let score = document.createElement('div');
-    score.className += " plot-score";
-    score.innerHTML = movie.vote_average;
-    rating.appendChild(score);
-    info.appendChild(rating);
+    // // Score
+    // let rating = document.createElement('div');
+    // rating.className += "plot-rating";
+    // rating.innerHTML = "Rating"
+    // let score = document.createElement('div');
+    // score.className += " plot-score";
+    // score.innerHTML = movie.vote_average;
+    // rating.appendChild(score);
+    // info.appendChild(rating);
     return info;
 }
-
 const util = {
     setCarouselImages: images => setCarouselImages(images),
     createThumbnail: movie => createThumbnail(movie),
     createDetailImage: movie => createDetailImage(movie),
     createInfoPlot: movie => createInfoPlot(movie),
-    createCharacterThumbnail: character => createCharacterThumbnail(character)
+    createCharacterThumbnail: character => createCharacterThumbnail(character),
+    createPersonImage: person => createPersonImage(person),
+    createPersonPlot: person => createPersonPlot(person),
 }
 
 export default util;

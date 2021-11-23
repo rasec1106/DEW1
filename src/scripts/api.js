@@ -7,6 +7,7 @@ const apiConfig = {
     RECOMMENDATIONS: "/recommendations",
     CREDITS: "/credits",
     SEARCH: "/search",
+    PERSON: "/person",
     spanish: "&language=es-MX"
 }
 
@@ -50,6 +51,14 @@ const apiFunctions = {
     searchMovies: async(searchTerm)=>{
         let url = apiConfig.BASE_URL+apiConfig.SEARCH+apiConfig.MOVIE+apiConfig.API_KEY+apiConfig.spanish+`&query=${searchTerm}`;
         return await (await fetch(url)).json();
+    },
+    person: async(personId)=>{
+        let url = apiConfig.BASE_URL+apiConfig.PERSON+`/${personId}`+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
+    personImageUrl: function(person) {
+        var baseImageUrl = "http://image.tmdb.org/t/p/w500";
+        return baseImageUrl + person.profile_path; 
     },
 
 }
