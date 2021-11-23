@@ -24,6 +24,7 @@ function createThumbnail(movie){
     let thumbnail = document.createElement('div');
     thumbnail.className += "thumbnail";
     let link = createThumbnailLink(movie);
+    link.className += " link";
     link.appendChild(createThumbnailImage(movie));
     thumbnail.appendChild(link);
     return thumbnail;
@@ -31,7 +32,7 @@ function createThumbnail(movie){
 
 function createThumbnailLink(movie){
     let link = document.createElement('a');
-    link.href = `./overview.html?movieId=${API.getmovieId(movie)}`;
+    link.href = `./overview.html?movieId=${movie.id}`;
     return link;
 }
 function createThumbnailImage(movie){
@@ -46,7 +47,37 @@ function createDetailImage(movie){
     image.className += "detail-image";
     return image;
 }
-
+function createCharacterThumbnail(character){
+    let thumbnail = document.createElement('div');
+    thumbnail.className += "thumbnail";
+    let link = createCharacterThumbnailLink(character);
+    link.className += " link";
+    link.appendChild(createCharacterThumbnailImage(character));
+    let description = document.createElement('div');
+    description.className += " characterDescription";
+    let name = document.createElement('h4');
+    name.className += " characterActorName"
+    name.innerHTML = character.name;
+    let characterName = document.createElement('div');
+    characterName.className += " characterName"
+    characterName.innerHTML = character.character;
+    description.appendChild(name);
+    description.appendChild(characterName);
+    link.appendChild(description);
+    thumbnail.appendChild(link);
+    return thumbnail;
+}
+function createCharacterThumbnailLink(character){
+    let link = document.createElement('a');
+    link.href = `./character.html?characterId=${character.id}`;
+    return link;
+}
+function createCharacterThumbnailImage(character){
+    let image = document.createElement('img');
+    image.src = API.posterCharacterUrl(character);
+    image.className += "thumbnail-image";
+    return image;
+}
 function createInfoPlot(movie){
     let info = document.createElement('div');
     info.className += " plot-info";
@@ -81,8 +112,8 @@ const util = {
     setCarouselImages: images => setCarouselImages(images),
     createThumbnail: movie => createThumbnail(movie),
     createDetailImage: movie => createDetailImage(movie),
-    createInfoPlot: movie => createInfoPlot(movie)
-
+    createInfoPlot: movie => createInfoPlot(movie),
+    createCharacterThumbnail: character => createCharacterThumbnail(character)
 }
 
 export default util;

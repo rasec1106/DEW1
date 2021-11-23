@@ -122,6 +122,10 @@ nav{
     width: 200px;
     height: 40px;
 }
+.simple-container{
+    width: 90%;
+    margin: auto;
+}
 .socialContainer{
     cursor: default;
 }
@@ -135,7 +139,7 @@ nav{
     display: block;
     font-size: 35px;
     width: 90%;
-    margin: 20px auto;
+    margin: 20px auto auto 20px;
     position: relative;
     font-family: 'Fredericka the Great', cursive, 'Roboto';
     color: #fff;
@@ -168,7 +172,7 @@ nav{
     position: relative;
     display: flex;
     width: 220px;
-    height: 330px;
+    height: fit-content;
     align-self: center;
     justify-self: center;
     margin: 10px 0;
@@ -195,8 +199,29 @@ nav{
     width: 90%;
     margin: auto;
 }
+#castContainer{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+#gridCastContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    overflow: auto;
+    position: relative;
+    margin: 20px auto 0 auto;
+}
 #trailerContainer{
-    /* width: 40%; */
+    width: 45%;
+    /* height: 500px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: auto; */
+}
+#recommendationsContainer{
+    width: 55%;
     /* height: 500px; */
     display: flex;
     flex-direction: column;
@@ -259,5 +284,27 @@ nav{
     border-radius: 20px;
 }
 .trailer{
-    margin-left: 40px;
+    /* margin-left: 40px; */
+}
+.recommendations{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.characterActorName{
+    margin: 15px auto auto 15px;
+    color: #fff;
+    text-decoration: none;
+}
+.characterName{
+    margin: auto auto auto 15px;
+    color: #fff;
+    font-size: 14px;
+}
+.characterName:hover, .characterActorName:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.characterDescription{
+    height: 100px;
 }
