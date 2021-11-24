@@ -167,6 +167,15 @@ nav{
     position: relative;
     margin: 20px auto 0 auto;
 }
+#seriesDataGridContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 90%;
+    height: fit-content;
+    overflow: auto;
+    position: relative;
+    margin: 20px auto 0 auto;
+}
 .thumbnail{
     position: relative;
     display: flex;
@@ -282,9 +291,9 @@ nav{
     position: relative;
     border-radius: 20px;
 }
-.trailer{
-    /* margin-left: 40px; */
-}
+/* .trailer{
+    margin-left: 40px;
+} */
 .recommendations{
     width: 100%;
     display: flex;

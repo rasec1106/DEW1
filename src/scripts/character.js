@@ -31,6 +31,30 @@ overviewContainer.appendChild(plot);
 //  * TRAILER SECTION
 //  */
 
+
+
+// Getting the data from the API
+const moviesData = (await API.personMovies(characterId));
+let cast = moviesData.cast;
+cast.sort((a,b)=> {
+    if(a.release_date>b.release_date) return -1
+    return 1;
+} );
+cast.sort((a,b)=> b.popularity-a.popularity);
+cast = cast.slice(0,10);
+let castContainer = document.getElementById('castContainer');
+// Subheader
+let title2 = document.createElement('div');
+title2.className += " subheader";
+title2.innerHTML = "Conocido por";
+castContainer.appendChild(title2);
+// Creating the characters
+let gridCastContainer = document.getElementById('gridCastContainer');
+cast.map(movie=>{
+    gridCastContainer.append(UTIL.createThumbnail(movie));
+})
+castContainer.appendChild(gridCastContainer);
+
 // // Getting the data from the API
 // const videosJson = (await API.videos(movieId));
 // const video = videosJson.results[0];

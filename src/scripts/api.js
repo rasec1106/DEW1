@@ -1,13 +1,17 @@
 const apiConfig = {
     BASE_URL: "https://api.themoviedb.org/3",
     API_KEY: "?api_key=2e24785394d993f26fba2a923499635d",
+    DISCOVER: "/discover",
     POPULAR: "/popular",
     MOVIE: "/movie",
+    TV: "/tv",
+    FILTER:"&watch_region=US&with_watch_providers=8|9|119|337&sort_by=popularity.desc",
     VIDEOS: "/videos",
     RECOMMENDATIONS: "/recommendations",
     CREDITS: "/credits",
     SEARCH: "/search",
     PERSON: "/person",
+    PERSON_MOVIES: "/movie_credits",
     spanish: "&language=es-MX"
 }
 
@@ -60,6 +64,18 @@ const apiFunctions = {
         var baseImageUrl = "http://image.tmdb.org/t/p/w500";
         return baseImageUrl + person.profile_path; 
     },
+    personMovies: async(personId)=>{
+        let url = apiConfig.BASE_URL+apiConfig.PERSON+`/${personId}`+apiConfig.PERSON_MOVIES+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
+    popularSeries: async()=>{
+        let url = apiConfig.BASE_URL+apiConfig.DISCOVER+apiConfig.TV+apiConfig.API_KEY+apiConfig.FILTER;
+        return await (await fetch(url)).json();
+    },
+    // movie: async(movieId)=>{
+    //     let url = apiConfig.BASE_URL+apiConfig.MOVIE+`/${movieId}`+apiConfig.API_KEY+apiConfig.spanish;
+    //     return await (await fetch(url)).json();
+    // },
 
 }
 export default apiFunctions;

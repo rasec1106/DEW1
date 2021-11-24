@@ -4,8 +4,8 @@ import UTIL from './util.js';
 /**
  * Fetching the data from the API
  */
-let data = (await API.popularMovies());
-const movies = data.results;
+const movies = (await API.popularMovies()).results;
+const series = (await API.popularSeries()).results;
 
 /**
  * Making the slider
@@ -19,6 +19,14 @@ let movieDataGrid = document.getElementById("movieDataGridContainer");
 movies.map((movie) =>{
     movieDataGrid.appendChild(UTIL.createThumbnail(movie));
 })
+
+/**
+ * Popular Series
+ */
+ let seriesDataGrid = document.getElementById("seriesDataGridContainer");
+ series.map((serie) =>{
+     seriesDataGrid.appendChild(UTIL.createThumbnail(serie));
+ })
 
 
 // var model = {
