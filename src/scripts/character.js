@@ -13,7 +13,6 @@ const characterId = params.get('characterId');
 
 // Getting the data from the API
 const character = (await API.person(characterId));
-console.log(character)
 let overviewContainer = document.getElementById('overviewContainer');
 // overviewContainer.style.backgroundImage = `url(${API.backgroundUrl(movie)})`;
 // Main Container
@@ -51,7 +50,7 @@ castContainer.appendChild(title2);
 // Creating the characters
 let gridCastContainer = document.getElementById('gridCastContainer');
 cast.map(movie=>{
-    gridCastContainer.append(UTIL.createThumbnail(movie));
+    gridCastContainer.append(UTIL.createMovieThumbnail(movie));
 })
 castContainer.appendChild(gridCastContainer);
 

@@ -5,7 +5,7 @@ import UTIL from './util.js';
  * Getting the movieId from the url
  */
 const params = new URLSearchParams(window.location.search);
-const movieId = params.get('movieId');
+const serieId = params.get('serieId');
 
 
 /**
@@ -13,7 +13,7 @@ const movieId = params.get('movieId');
  */
 
 // Getting the data from the API
-const movie = (await API.movie(movieId));
+const movie = (await API.serie(serieId));
 
 let overviewContainer = document.getElementById('overviewContainer');
 overviewContainer.style.backgroundImage = `url(${API.backgroundUrl(movie)})`;
@@ -24,7 +24,7 @@ plot.className += " plot";
 let image = UTIL.createDetailImage(movie);
 plot.appendChild(image);
 // Info
-let infoContainer = UTIL.createInfoPlot(movie);
+let infoContainer = UTIL.createSerieInfoPlot(movie);
 plot.appendChild(infoContainer);
 overviewContainer.appendChild(plot);
 
@@ -33,7 +33,7 @@ overviewContainer.appendChild(plot);
  */
 
 // Getting the data from the API
-const videosJson = (await API.videos(movieId));
+const videosJson = (await API.seriesVideos(serieId));
 const video = videosJson.results[0];
 let trailer = null;
 if(video) trailer = video.key;
@@ -75,7 +75,7 @@ if(trailer){
  */
 
 // Getting the data from the API
-let recommendations = (await API.recommendations(movieId));
+let recommendations = (await API.seriesRecommendations(serieId));
 let recommendedMovies = recommendations.results;
 // If the trailer exists we only show 3 recommendations, if not we show 5
 if (trailer) recommendedMovies = recommendedMovies.slice(0,3);
@@ -98,7 +98,7 @@ if(recommendedMovies.length == 0){
     let gridRecommendations = document.createElement('div');
     gridRecommendations.className += " recommendations";
     recommendedMovies.map(movie => {
-        gridRecommendations.append(UTIL.createMovieThumbnail(movie));
+        gridRecommendations.append(UTIL.createSerieThumbnail(movie));
     })
     recommendationsContainer.appendChild(gridRecommendations);
 } 
@@ -108,7 +108,7 @@ if(recommendedMovies.length == 0){
  */
 
 // Getting the data from the API
-let credits = (await API.credits(movieId));
+let credits = (await API.seriesCredits(serieId));
 let cast = credits.cast.slice(0,5);
 let castContainer = document.getElementById('castContainer');
 // Subheader

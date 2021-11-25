@@ -72,10 +72,22 @@ const apiFunctions = {
         let url = apiConfig.BASE_URL+apiConfig.DISCOVER+apiConfig.TV+apiConfig.API_KEY+apiConfig.FILTER;
         return await (await fetch(url)).json();
     },
-    // movie: async(movieId)=>{
-    //     let url = apiConfig.BASE_URL+apiConfig.MOVIE+`/${movieId}`+apiConfig.API_KEY+apiConfig.spanish;
-    //     return await (await fetch(url)).json();
-    // },
+    serie: async(serieId)=>{
+        let url = apiConfig.BASE_URL+apiConfig.TV+`/${serieId}`+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
+    seriesRecommendations: async(serieId)=>{
+        let url = apiConfig.BASE_URL+apiConfig.TV+`/${serieId}`+apiConfig.RECOMMENDATIONS+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
+    seriesCredits: async(serieId)=>{
+        let url = apiConfig.BASE_URL+apiConfig.TV+`/${serieId}`+apiConfig.CREDITS+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
+    seriesVideos: async(serieId)=>{
+        let url = apiConfig.BASE_URL+apiConfig.TV+`/${serieId}`+apiConfig.VIDEOS+apiConfig.API_KEY+apiConfig.spanish;
+        return await (await fetch(url)).json();
+    },
 
 }
 export default apiFunctions;

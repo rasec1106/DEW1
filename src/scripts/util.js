@@ -20,7 +20,7 @@ function setCarouselImages(images){
       $('.indicator').first()[0].className += " active";
 }
 
-function createThumbnail(movie){
+function createMovieThumbnail(movie){
     let thumbnail = document.createElement('div');
     thumbnail.className += "thumbnail";
     let link = createThumbnailLink(movie);
@@ -142,14 +142,59 @@ function createPersonPlot(person){
     // info.appendChild(rating);
     return info;
 }
+function createSerieThumbnail(serie){
+    let thumbnail = document.createElement('div');
+    thumbnail.className += "thumbnail";
+    let link = createSerieThumbnailLink(serie);
+    link.className += " link";
+    link.appendChild(createThumbnailImage(serie));
+    thumbnail.appendChild(link);
+    return thumbnail;
+}
+function createSerieThumbnailLink(serie){
+    let link = document.createElement('a');
+    link.href = `./overviewSeries.html?serieId=${serie.id}`;
+    return link;
+}
+function createSerieInfoPlot(serie){
+    let info = document.createElement('div');
+    info.className += " plot-info";
+    // Titulo
+    let title = document.createElement('h2');
+    title.className += " plot-title";
+    title.innerHTML = serie.name+` (${serie.first_air_date.slice(0,4)})`;
+    info.appendChild(title);
+    // Subtitulo
+    let subtitle = document.createElement('h4');
+    subtitle.className += " plot-subtitle";
+    subtitle.innerHTML = `Temporadas: ${serie.number_of_seasons} | Episodios: ${serie.number_of_episodes}`;
+    info.appendChild(subtitle);
+    // Overview
+    let description = document.createElement('p');
+    description.className += " plot-description";
+    description.innerHTML = serie.overview;
+    info.appendChild(description);
+    // Score
+    let rating = document.createElement('div');
+    rating.className += "plot-rating";
+    rating.innerHTML = "Rating"
+    let score = document.createElement('div');
+    score.className += " plot-score";
+    score.innerHTML = serie.vote_average;
+    rating.appendChild(score);
+    info.appendChild(rating);
+    return info;
+}
 const util = {
     setCarouselImages: images => setCarouselImages(images),
-    createThumbnail: movie => createThumbnail(movie),
+    createMovieThumbnail: movie => createMovieThumbnail(movie),
     createDetailImage: movie => createDetailImage(movie),
     createInfoPlot: movie => createInfoPlot(movie),
     createCharacterThumbnail: character => createCharacterThumbnail(character),
     createPersonImage: person => createPersonImage(person),
     createPersonPlot: person => createPersonPlot(person),
+    createSerieThumbnail: serie => createSerieThumbnail(serie),
+    createSerieInfoPlot: serie => createSerieInfoPlot(serie),
 }
 
 export default util;

@@ -17,7 +17,7 @@ UTIL.setCarouselImages(movies.slice(0,5));
  */
 let movieDataGrid = document.getElementById("movieDataGridContainer");
 movies.map((movie) =>{
-    movieDataGrid.appendChild(UTIL.createThumbnail(movie));
+    movieDataGrid.appendChild(UTIL.createMovieThumbnail(movie));
 })
 
 /**
@@ -25,7 +25,7 @@ movies.map((movie) =>{
  */
  let seriesDataGrid = document.getElementById("seriesDataGridContainer");
  series.map((serie) =>{
-     seriesDataGrid.appendChild(UTIL.createThumbnail(serie));
+     seriesDataGrid.appendChild(UTIL.createSerieThumbnail(serie));
  })
 
 

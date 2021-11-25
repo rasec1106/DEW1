@@ -44,7 +44,7 @@ function updateGridContainer(searchTerm) {
       // Removing all the content
       movieDataGrid.innerHTML = "";
       results.map((movie) =>{
-          movieDataGrid.appendChild(UTIL.createThumbnail(movie));
+          movieDataGrid.appendChild(UTIL.createMovieThumbnail(movie));
       })
       // Giving some animation
       movieDataGrid.animate([
@@ -69,7 +69,7 @@ function getPopularMovies() {
       // Removing all the content
       movieDataGrid.innerHTML = "";
       popularMovies.map((movie) =>{
-          movieDataGrid.appendChild(UTIL.createThumbnail(movie));
+          movieDataGrid.appendChild(UTIL.createMovieThumbnail(movie));
       })
       // Giving some animation
       movieDataGrid.animate([
