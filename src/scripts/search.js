@@ -12,7 +12,6 @@ let search = document.getElementById("searchBarInput");
 search.addEventListener('keyup',eventHandler);
 // The first time the page is load we call the function
 searchMovies(search.value);
-console.log(search.value);
 
 function eventHandler(event){
   let searchTerm = event.target.value;

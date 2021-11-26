@@ -2,7 +2,7 @@ import API from './api.js';
 import UTIL from './util.js';
 
 /**
- * Getting the movieId from the url
+ * Getting the serieId from the url
  */
 const params = new URLSearchParams(window.location.search);
 const serieId = params.get('serieId');
@@ -13,18 +13,18 @@ const serieId = params.get('serieId');
  */
 
 // Getting the data from the API
-const movie = (await API.serie(serieId));
+const serie = (await API.serie(serieId));
 
 let overviewContainer = document.getElementById('overviewContainer');
-overviewContainer.style.backgroundImage = `url(${API.backgroundUrl(movie)})`;
+overviewContainer.style.backgroundImage = `url(${API.backgroundUrl(serie)})`;
 // Main Container
 let plot = document.createElement('div');
 plot.className += " plot";
 // Image
-let image = UTIL.createDetailImage(movie);
+let image = UTIL.createDetailImage(serie);
 plot.appendChild(image);
 // Info
-let infoContainer = UTIL.createSerieInfoPlot(movie);
+let infoContainer = UTIL.createSerieInfoPlot(serie);
 plot.appendChild(infoContainer);
 overviewContainer.appendChild(plot);
 
@@ -76,10 +76,10 @@ if(trailer){
 
 // Getting the data from the API
 let recommendations = (await API.seriesRecommendations(serieId));
-let recommendedMovies = recommendations.results;
+let recommendedSeries = recommendations.results;
 // If the trailer exists we only show 3 recommendations, if not we show 5
-if (trailer) recommendedMovies = recommendedMovies.slice(0,3);
-else recommendedMovies = recommendedMovies.slice(0,5);
+if (trailer) recommendedSeries = recommendedSeries.slice(0,3);
+else recommendedSeries = recommendedSeries.slice(0,5);
 
 let recommendationsContainer = document.getElementById('recommendationsContainer');
 // Subheader
@@ -88,7 +88,7 @@ title.className += " subheader";
 title.innerHTML = "Recomendaciones";
 recommendationsContainer.appendChild(title);
 // If there are no recommendations we show a message
-if(recommendedMovies.length == 0){
+if(recommendedSeries.length == 0){
     let message = document.createElement("h4");
     message.innerHTML = "No existen recomendaciones"
     message.style = "height: 350px; padding-top: 20px;"
@@ -97,8 +97,8 @@ if(recommendedMovies.length == 0){
     // Creating the recommendations
     let gridRecommendations = document.createElement('div');
     gridRecommendations.className += " recommendations";
-    recommendedMovies.map(movie => {
-        gridRecommendations.append(UTIL.createSerieThumbnail(movie));
+    recommendedSeries.map(serie => {
+        gridRecommendations.append(UTIL.createSerieThumbnail(serie));
     })
     recommendationsContainer.appendChild(gridRecommendations);
 } 

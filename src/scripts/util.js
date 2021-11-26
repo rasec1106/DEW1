@@ -5,9 +5,31 @@ function setCarouselImages(images){
         // Creating the images
         let container = document.createElement('div');
         container.className += " carousel-item";
-        let image = document.createElement('img');
+        let image = document.createElement('div');
         image.className += " d-block w-100 carousel-img";
-        image.src = API.backgroundUrl(images[pos]);
+        image.style = `
+            background: linear-gradient(
+                to bottom, 
+                rgba(0,0,0,0) 25%,
+                rgba(0,0,0,0.90) 70%
+                ), url(${API.backgroundUrl(images[pos])}),#030303; 
+            background-position: center;
+            background-size: 1440px 600px;`;
+        let containerHelp = document.createElement('div');
+        containerHelp.className = " simple-container"
+        containerHelp.style = "position: relative; height:500px;"
+        let text = document.createElement('div');
+        text.className += " carousel-text";
+        let title = document.createElement('h1');
+        title.innerHTML= images[pos].title;
+        title.style="margin:0;"
+        text.appendChild(title);
+        let description = document.createElement('p');
+        description.innerHTML= images[pos].overview;
+        description.style="margin:0;"
+        text.appendChild(description);
+        containerHelp.appendChild(text);
+        image.appendChild(containerHelp);
         container.appendChild(image);
         $('#carouselContainer').append(container);
   
