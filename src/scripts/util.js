@@ -153,15 +153,6 @@ function createPersonPlot(person){
     description.className += " plot-description";
     description.innerHTML = person.biography;
     info.appendChild(description);
-    // // Score
-    // let rating = document.createElement('div');
-    // rating.className += "plot-rating";
-    // rating.innerHTML = "Rating"
-    // let score = document.createElement('div');
-    // score.className += " plot-score";
-    // score.innerHTML = movie.vote_average;
-    // rating.appendChild(score);
-    // info.appendChild(rating);
     return info;
 }
 function createSerieThumbnail(serie){
